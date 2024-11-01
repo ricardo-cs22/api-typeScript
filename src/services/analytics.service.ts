@@ -51,9 +51,9 @@ class AnalyticsService {
     if (!aluno) throw new Error('Aluno não encontrado');
 
     const media = this.calculateAverage(aluno.notaOficial, aluno.notaParcial);
-    const presenca = this.calculatePresencePercentage(aluno.presenca, aluno.disciplina?.quantidadeAulas || 0); // Handle potential null
+    const presenca = this.calculatePresencePercentage(aluno.presenca, aluno.disciplina?.quantidadeAulas || 0); 
     const atividadesEmSala = aluno.atividadesEmSala || 0; // Fallback to 0 if null
-    const atividadesExtracurriculares = aluno.atividadesExtracurriculares || 0; // Fallback to 0 if null
+    const atividadesExtracurriculares = aluno.atividadesExtracurriculares || 0; 
 
     if (presenca < 30 || media <= 5 || atividadesEmSala <= 7 || atividadesExtracurriculares < 3) {
       return { alunoId, risco: 'ALTO' };
