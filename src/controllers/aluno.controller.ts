@@ -11,8 +11,7 @@ const getAll = async (req: Request, res: Response) => {
 };
 
 const getOne = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const aluno = await prisma.aluno.findUnique({ where: { id } });
+  const { id } = req.params;  const aluno = await prisma.aluno.findUnique({ where: { id } });
   aluno ? res.json(aluno) : res.status(404).json({ error: 'Aluno não encontrado' });
 };
 
